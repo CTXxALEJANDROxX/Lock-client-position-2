@@ -1,11 +1,10 @@
--- Toggle Lock Client Position
-_G.lockPosition = not _G.lockPosition  -- alterna el estado
+local active = _G.lockPosition -- asume que esta variable controla el estado
 
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local hrp = char:WaitForChild("HumanoidRootPart")
 
-if _G.lockPosition then
+if active then
     hrp.Anchored = true
     print("🚫 Posición bloqueada.")
 else
